@@ -1,3 +1,69 @@
 # Sensor Fusion For Object Pose Estimation in Non-Prehensile Tray-Based Transportation
 This ROS2 workspace provides the entire development environment for a non-prehensile manipulation application consisting of a manipulator with a tray carrying an object. The Extended Kalman Filter performs the sensor fusion of sensory data to estimated object pose on the tray.
 ![simulation setup](images/simulation_setup.png)
+
+## :package: Package Overview
+- [`apriltag`](./apriltag): is a ROS2 wrapper of the AprilTag visual fiducial detector. 
+- [`apriltag_ros`](./apriltag_ros): depends on the latest release of the AprilTag library. Clone it into your catkin workspace before building.
+- [`iiwa_description`](./iiwa_description): URDF description of Kuka Iiwa manipulator including its sensors, planner and inverse dynamics control.
+- [`ekf_pkg`](./ekf_pkg): contain two version of EKF.
+  
+## :hammer: How to Build
+To build the packages in this repository follow these steps:
+1. `cd` into an existing [ROS2  workspace]([http://wiki.ros.org/catkin/Tutorials/create_a_workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)) or create a new one:
+   ```console
+   mkdir -p noprehensileman_ws/src
+   ```
+
+2. Clone this repository in the `src` folder of your ROS Noetic catkin workspace:
+
+   ```console
+   cd noprehensileman_ws/src
+   ```
+
+   ```console
+   git clone [https://github.com/AndreaMazzera/Project_Robotics_Lab.git](https://github.com/AndreaMazzera/SensFusNonPrehensileManipulation.git)
+   ```
+      
+3. Install the requried binary dependencies of all packages in the catkin workspace using the following [`rosdep` command](http://wiki.ros.org/rosdep#Install_dependency_of_all_packages_in_the_workspace) (I added this command because I've read that it often helps with the dependency issue):
+
+   ```
+    rosdep install -i --from-path src --rosdistro humble -y
+   ```
+
+4. After installing the required dependencies build the ROS2 workspace. Hint: colcon build with its parallel compilation of packages could saturate the CPU by blocking the PC. To avoid this it is best to add the --executor sequential parameter to force it to a sequential build.
+
+   ```console
+   noprehensileman_ws$ colcon build --executor sequential
+   ```
+   
+5. Finally, source the newly built packages with the `install/setup.*` script, depending on your used shell:
+
+   ```console
+   noprehensileman_ws$ source install/setup.bash
+   ```
+
+## :white_check_mark: Usage
+To test the project open four terminal and launch respectively:
+1. Launcher for Gazebo and Rviz: 
+
+  ```console
+  ros2 launch iiwa_description bringup.launch
+  ```
+
+2. Laucher for user menu where you can select desired trajectory:
+
+  ```console
+  ros2 launch iiwa_description service_client_node
+  ```
+
+3. Launcher for EKF. The package present two EKF: model-based (option A) and sensor-based (option B). After it ask if you want change gains of EKF.
+
+  ```console
+  ros2 launch ekf_pkg ekg.launch
+  ```
+4. Launcher for plotjungler to visualize all important data:
+   
+  ```console
+  ros2 run plotjungler plotjungler
+  ```
