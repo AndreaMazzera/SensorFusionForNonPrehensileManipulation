@@ -1,0 +1,10 @@
+# Position and orientation of manipulator respect world frame
+# ATTENTION: if you are using ID control in operational space 
+# is important to change these values coherently with initial pose of end-effector
+base_frame:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  roll: 0.0
+  pitch: 0.0
+  yaw: 0.0

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="ft_sensor" params="measure_joint">
+
+        <gazebo reference="${measure_joint}">
+            <provideFeedback>true</provideFeedback>
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+        </gazebo>
+        
+        <gazebo>
+            <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+            <updateRate>100.0</updateRate>
+            <topicName>sensor_wrench</topicName>
+            <joint_name>${measure_joint}</joint_name>
+            </plugin>
+        </gazebo> 
+
+    </xacro:macro>
+</robot>

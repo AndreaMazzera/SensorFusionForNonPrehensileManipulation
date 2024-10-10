@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<robot name="kuka_iiwa">
+
+    
+  <!-- Base Link -->
+  <link name="world"/>
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_description/meshes/visual/base_link.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_description/meshes/collision/base_link.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="2"/>
+      <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <!-- Joint to ground Base Link -->
+  <joint name="grouding" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+
+
+    <link name="link_1">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/visual/link_1.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/collision/link_1.stl" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="1.0" />
+      </inertial>
+    </link>
+    <link name="link_2">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/visual/link_2.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/collision/link_2.stl" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="1.0" />
+      </inertial>
+    </link>
+    <link name="link_3">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/visual/link_3.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/collision/link_3.stl" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="1.0" />
+      </inertial>
+    </link>
+    <link name="link_4">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/visual/link_4.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/collision/link_4.stl" />
+        </geometry>
+      </collision>
+        <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="1.0" />
+      </inertial>
+    </link>
+    <link name="link_5">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/visual/link_5.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/collision/link_5.stl" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="1.0" />
+      </inertial>
+    </link>
+    <link name="link_6">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/visual/link_6.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/collision/link_6.stl" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="1.0" />
+      </inertial>
+    </link>
+    <link name="link_7">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/visual/link_7.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/collision/link_7.stl" />
+        </geometry>
+      </collision>
+        <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="1.0" />
+      </inertial>
+    </link>
+
+   
+  <link name="tray">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/visual/planar_end_eff_visual.stl" />
+        </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/collision/planar_end_eff_collision.stl" />
+        </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="1" />
+          <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.1" />
+    </inertial>
+  </link>
+   
+  <gazebo reference="tray">
+
+      <material>Gazebo/DarkGrey</material>
+      <mu1>0.5</mu1>
+      <mu2>0.5</mu2>
+      <kp value="1e6" />
+  	  <kd value="1e3" />
+  </gazebo>
+
+    <!-- end of link list -->
+
+    <!-- joint list -->
+    <joint name="joint_a1" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="base_link" />
+      <child link="link_1" />
+      <axis xyz="0 0 1" />
+      <limit lower="-2.9668" upper="2.9668" effort="1000" velocity="1.4834" />
+      <dynamics damping="50" friction="1"/>
+    </joint>
+    <joint name="joint_a2" type="revolute">
+      <origin xyz="-0.00043624 0 0.36" rpy="0 0 0" />
+      <parent link="link_1" />
+      <child link="link_2" />
+      <axis xyz="0 1 0" />
+      <limit lower="-2.0942" upper="2.0942" effort="1000" velocity="1.4834" />
+      <dynamics damping="50" friction="1"/>
+    </joint>
+    <joint name="joint_a3" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="link_2" />
+      <child link="link_3" />
+      <axis xyz="0 0 1" />
+      <limit lower="-2.9668" upper="2.9668" effort="1000" velocity="1.7452" />
+      <dynamics damping="50" friction="1"/>
+    </joint>
+    <joint name="joint_a4" type="revolute">
+      <origin xyz="0.00043624 0 0.42" rpy="0 0 0" />
+      <parent link="link_3" />
+      <child link="link_4" />
+      <axis xyz="0 -1 0" />
+      <limit lower="-2.0942" upper="2.0942" effort="1000" velocity="1.3089" />
+      <dynamics damping="50" friction="1"/>
+    </joint>
+    <joint name="joint_a5" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="link_4" />
+      <child link="link_5" />
+      <axis xyz="0 0 1" />
+      <limit lower="-2.9668" upper="2.9668" effort="1000" velocity="2.2688" />
+      <dynamics damping="50" friction="1"/>
+    </joint>
+    <joint name="joint_a6" type="revolute">
+      <origin xyz="0 0 0.4" rpy="0 0 0" />
+      <parent link="link_5" />
+      <child link="link_6" />
+      <axis xyz="0 1 0" />
+      <limit lower="-2.0942" upper="2.0942" effort="1000" velocity="2.356" />
+      <dynamics damping="50" friction="1"/>
+    </joint>
+    <joint name="joint_a7" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="link_6" />
+      <child link="link_7" />
+      <axis xyz="0 0 1" />
+      <limit lower="-3.0541" upper="3.0541" effort="1000" velocity="2.356" />
+      <dynamics damping="50" friction="1"/>
+    </joint>
+    <joint name="joint_a7-tool0" type="fixed">
+      <origin xyz="0 0 0.126" rpy="0 0 0" />
+      <parent link="link_7" />
+      <child link="tray" />
+      <axis xyz="0 0 0" />
+      <dynamics friction="1.0"/>
+    </joint>
+</robot>

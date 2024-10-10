@@ -1,0 +1,137 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <!-- Model definition for a cuboid object -->
+  <!-- Dimensions of the cuboid in meters (0.04m = 4cm) -->
+  <model name='cuboid_object'>
+    
+    <!-- Physics parameters -->
+    <self_collide>0</self_collide>
+    <enable_wind>0</enable_wind>
+    <allow_auto_disable>0</allow_auto_disable>
+    <kinematic>0</kinematic>
+    <static>false</static>
+
+    <link name="cubo_link">
+      <!-- Visual of the cuboid -->
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose> 
+        <geometry>
+          <mesh>
+            <uri>model://cuboid_object/meshes/new_cube.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <!-- Collision properties of the cuboid -->
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+            <uri>model://cuboid_object/meshes/obj.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <!-- Friction coefficients -->
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>   
+              <!-- Soft Constraint Force Mixing -->
+              <!-- 
+                This parameter stabilises the simulation by converting a hard contact 
+                into a soft one. In detail, increasing its value allows a conpenetration 
+                of objects by reducing the instability of rigid contacts. 
+                In the case of the presence of INTERMITTENT CONTACTS, it is essential 
+                to calibrate this parameter. 
+                Typical values are between 0 (hard contact) and 0.1 (soft contact).
+              -->
+              <!-- Formula: soft_cfm = 1 / (Kp * simstep + Kd)  0.005 -->
+              <soft_cfm>0.0005</soft_cfm>
+            
+              <!-- Soft Error Reduction Parameter -->
+              <!-- 
+                This parameter indicates the percentage of position error caused 
+                by the conpenetration is corrected at each simulation step. 
+                High values of this parameter mean a high correction. 
+                Beware, however, that high correction values can lead to instability. 
+                Typical values are between 0 (no correction) and 1 (complete correction).
+              -->
+              <!-- Formula: soft_erp = (Kp * simstep) / (Kp * simstep + Kd)  0.5-->
+              <soft_erp>0.5</soft_erp>
+              
+              <!-- Spring stiffness coefficient -->
+              <!-- 
+                It is the proportional gain that determines the stiffness of the 
+                contact constraint. It controls the force with which the system 
+                responds to position errors (in fact, the unit of measurement is N/m). 
+                Thus, high values of Kp result in stiffer contacts that resist 
+                penetration more, however, favouring instability. 
+                Typical values are between 10^3 and 10^6.     1000000
+              -->
+              <kp>1000000.0</kp>
+
+              <!-- Damping coefficient -->
+              <!-- 
+                is the derivative gain that provides damping to the contact constraint, 
+                reducing oscillations and improving stability. 
+                Therefore, high values of Kd increase the damping effect of oscillations 
+                and slow down the responses to contact forces. 
+                Typical values are between 10^2 and 10^5.    1000
+              -->
+              <kd>1000.0</kd>
+
+              <!-- Maximum contact velocity -->
+              <!--
+                This parameter offers a saturation value to the speed 
+                (in fact the unit of measurement is m/s) at the contact point, 
+                limiting the generation of contact forces that are too large, 
+                which cause unrealistic behavior of the objects and numerical instability. 
+                It is very useful especially for controlling the behavior of these 
+                forces in high-speed contacts (e.g. falls). Tune this parameter by 
+                trial and error starting from a low value (0.1 m/s) and observe 
+                whether the bouncing of the objects is realistic.    0.1
+              -->
+              <max_vel>0.1</max_vel>
+
+              <!-- Minimum penetration depth -->
+              <!-- 
+                This parameter specifies the minimum penetration depth in meters 
+                at which contact forces are generated. In a simulation, 
+                objects may have very slight interpenetrations due to numerical 
+                inaccuracies or small fluctuations. By setting this threshold it 
+                is guaranteed that only penetrations at that depth generate 
+                contact forces, thus avoiding the unnecessary calculation of 
+                the latter for very small penetrations. 
+                The recommended value is 0.001 m (1 mm).
+              -->
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+        <max_contacts>10</max_contacts>
+      </collision>
+  
+      <!-- Inertial properties of the cuboid -->
+      <inertial>
+        <!-- Mass of the cuboid in kilograms -->
+        <mass>0.236</mass>
+        <inertia>
+          <!-- Inertia tensor components -->
+          <ixx>0.0001</ixx>
+          <iyy>0.0001</iyy>
+          <izz>0.0001</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+        <pose>0 0 0 0 0 0</pose>
+      </inertial>
+
+    </link>
+    
+  </model>
+</sdf>
