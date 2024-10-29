@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<robot name="camera" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 0 0" />
+    <origin xyz="0.15 0 0.05" rpy="0 0 ${pi}"/>
+    <parent link="tray"/>
+    <child link="camera_link"/>
+  </joint>
+
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+       <geometry>
+        <box size="0.010 0.03 0.03"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="${pi/2} 0 ${-pi/2}"/>
+      <geometry>
+        <mesh filename="package://iiwa_description/meshes/visual/d435.dae" />
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="0.026" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+  </link>
+
+  <joint name="camera_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+      <parent link="camera_link" />
+      <child link="camera_link_optical" />
+  </joint>
+  <link name="camera_link_optical"></link>
+
+  <gazebo reference="camera_link">
+    <sensor type="camera" name="camera">
+        <always_on>true</always_on>
+        <update_rate>50.0</update_rate>
+        <camera name="head">
+            <horizontal_fov>1.211259</horizontal_fov>
+            <vertical_fov>0.86</vertical_fov>
+            <image>
+                <width>1920</width>
+                <height>1080</height>
+                <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.02</near>
+              <far>100</far>
+            </clip>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+        </camera>
+        <plugin name="arm_camera" filename="libgazebo_ros_camera.so">
+            <ros>
+                <remapping>~/image_raw:=image_raw</remapping>
+                <remapping>~/camera_info:=camera_info</remapping>
+            </ros>
+            <camera_name>camera</camera_name>
+            <frame_name>camera_link_optical</frame_name>
+            <hack_baseline>0.07</hack_baseline>
+        </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>
