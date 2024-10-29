@@ -1,5 +1,0 @@
-ExtendendKalmanFilter:
-  ros__parameters:
-    Kq: 0.01
-    Kr: 20.0
-    Kp: 5.0 

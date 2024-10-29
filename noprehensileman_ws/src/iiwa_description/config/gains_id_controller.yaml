@@ -1,5 +1,0 @@
-OpID_Controller:
-  ros__parameters:
-    Kd: 20.0
-    Kp: 60.0
-   
