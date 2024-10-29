@@ -1,0 +1,21 @@
+#
+# ComposableNode should not be nested with node name and namespace
+#
+image_transport: 'raw'    # image format
+family: '36h11'           # tag family name
+size: 0.035                # default tag size
+threads: 2
+max_hamming: 0          # maximum allowed hamming distance (corrected bits)
+z_up: true              # rotate about x-axis to have Z pointing upwards
+
+# see "apriltag.h" for more documentation on these optional parameters
+decimate: 2.0           # decimate resolution for quad detection
+blur: 0.0               # sigma of Gaussian blur for quad detection
+refine-edges: 1         # snap to strong gradients
+debug: 0                # write additional debugging images to current working directory
+tag_ids: [1,10]
+#tag_ids: [1,2,15]            # tag ID
+tag_frames: [tag_frame,tag_pose]
+#tag_frames: [tag_frame,tag_pose,tag_tray]
+tag_sizes: [0.035,0.04]   # optional tag-specific edge size
+#tag_sizes: [0.08,0.08,0.08]   # optional tag-specific edge size
