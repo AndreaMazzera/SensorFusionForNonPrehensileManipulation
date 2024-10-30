@@ -1,12 +1,15 @@
 # Sensor Fusion For Object Pose Estimation in Non-Prehensile Tray-Based Transportation
-This ROS2 workspace provides the entire development environment for a non-prehensile manipulation application consisting of a manipulator with a tray carrying an object. The Extended Kalman Filter performs the sensor fusion of sensory data to estimated object pose on the tray.
+This repository provides the entire development environment for a non-prehensile manipulation application consisting of a manipulator with a tray carrying an object. The Extended Kalman Filter performs the sensor fusion of sensory data to estimated object pose (x,y,yaw) on the tray.
 ![simulation setup](images/simulation_setup.png)
 
 ## :package: Package Overview
 - [`apriltag`](./apriltag): is a ROS2 wrapper of the AprilTag visual fiducial detector. 
 - [`apriltag_ros`](./apriltag_ros): depends on the latest release of the AprilTag library. Clone it into your catkin workspace before building.
-- [`iiwa_description`](./iiwa_description): URDF description of Kuka Iiwa manipulator including its sensors, planner and inverse dynamics control.
+- [`data`](./data): it isn't a ROS2 package but a simple folder where any CSV files containing the numerical data acquired in the simulations have been inserted.
 - [`ekf_pkg`](./ekf_pkg): contain two version of EKF.
+- [`iiwa_description`](./iiwa_description): URDF description of Kuka Iiwa manipulator including its sensors, planner and inverse dynamics control.
+- [`iiwa_msgs`](./iiwa_msgs): contains a customised composed message used for Client-Server interaction between planner and user menu.
+- [`real_experiments_pkg`](./real_experiments_pkg): for any user is useless because it contains all the scripts related to the experimentation phase on real hardware used for the master's thesis.
   
 ## :hammer: How to Build
 To build the packages in this repository follow these steps:
