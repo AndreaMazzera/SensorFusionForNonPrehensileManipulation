@@ -15,14 +15,14 @@ To build the packages in this repository follow these steps:
    mkdir -p noprehensileman_ws/src
    ```
 
-2. Clone this repository in the `src` folder of your ROS Noetic catkin workspace:
+2. Clone this repository in the `src` folder of your ROS2 workspace:
 
    ```console
    cd noprehensileman_ws/src
    ```
 
    ```console
-   git clone [https://github.com/AndreaMazzera/Project_Robotics_Lab.git](https://github.com/AndreaMazzera/SensFusNonPrehensileManipulation.git)
+   git clone https://github.com/AndreaMazzera/SensFusNonPrehensileManipulation.git
    ```
       
 3. Install the requried binary dependencies of all packages in the catkin workspace using the following [`rosdep` command](http://wiki.ros.org/rosdep#Install_dependency_of_all_packages_in_the_workspace) (I added this command because I've read that it often helps with the dependency issue):
@@ -34,7 +34,7 @@ To build the packages in this repository follow these steps:
 4. After installing the required dependencies build the ROS2 workspace. Hint: colcon build with its parallel compilation of packages could saturate the CPU by blocking the PC. To avoid this it is best to add the --executor sequential parameter to force it to a sequential build.
 
    ```console
-   noprehensileman_ws$ colcon build --executor sequential
+   colcon build --executor sequential
    ```
    
 5. Finally, source the newly built packages with the `install/setup.*` script, depending on your used shell:
