@@ -40,10 +40,10 @@ To build the packages in this repository follow these steps:
    colcon build --executor sequential
    ```
    
-5. Finally, source the newly built packages with the `install/setup.*` script, depending on your used shell:
+5. Finally:
 
    ```console
-   noprehensileman_ws$ source install/setup.bash
+   source install/setup.bash
    ```
 
 ## :white_check_mark: Usage
