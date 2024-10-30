@@ -59,6 +59,7 @@ To test the project open four terminal and launch respectively:
   ```console
   ros2 launch iiwa_description service_client_node
   ```
+![user menu](images/user_menu.png)
 
 3. Launcher for EKF. The package present two EKF: model-based (option A) and sensor-based (option B). After it ask if you want change gains of EKF (attention: these are taken from the ekg_pkg folder in ‘install’).
 
