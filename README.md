@@ -30,7 +30,7 @@ To build the packages in this repository follow these steps:
       
 3. Install the requried binary dependencies of all packages in the catkin workspace using the following [`rosdep` command](http://wiki.ros.org/rosdep#Install_dependency_of_all_packages_in_the_workspace) (I added this command because I've read that it often helps with the dependency issue):
 
-   ```
+   ```console
     rosdep install -i --from-path src --rosdistro humble -y
    ```
 
@@ -48,7 +48,7 @@ To build the packages in this repository follow these steps:
 
 ## :white_check_mark: Usage
 To test the project open four terminal and launch respectively:
-1. Launcher for Gazebo and Rviz: 
+1. Launcher for Gazebo, Rviz, manipulator with relative controller (inverse dynamics in operational space) and planner: 
 
   ```console
   ros2 launch iiwa_description bringup.launch
@@ -60,7 +60,7 @@ To test the project open four terminal and launch respectively:
   ros2 launch iiwa_description service_client_node
   ```
 
-3. Launcher for EKF. The package present two EKF: model-based (option A) and sensor-based (option B). After it ask if you want change gains of EKF.
+3. Launcher for EKF. The package present two EKF: model-based (option A) and sensor-based (option B). After it ask if you want change gains of EKF (attention: these are taken from the ekg_pkg folder in ‘install’).
 
   ```console
   ros2 launch ekf_pkg ekg.launch
