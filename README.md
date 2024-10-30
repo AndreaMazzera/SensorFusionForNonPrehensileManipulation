@@ -66,6 +66,9 @@ To test the project open four terminal and launch respectively:
   ```console
   ros2 launch ekf_pkg ekg.launch
   ```
+  This console displays some useful information (updated every 3 seconds) such as whether the object has fallen or not and what sensor data is available.
+![ekf_state](images/ekf_state.png)
+
 4. Launcher for plotjungler to visualize all important data:
    
   ```console
