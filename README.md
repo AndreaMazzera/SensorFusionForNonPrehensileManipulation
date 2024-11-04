@@ -68,7 +68,8 @@ To test the project open four terminal and launch respectively:
   ```
   This console displays some useful information (updated every 3 seconds) such as whether the object has fallen or not and what sensors data are available.
   
-![ekf_state](images/ekf_state.png)
+<div align="center"> <img src="images/ekf_state.png" alt="user menu"> </div> 
+
 
 4. Launcher for plotjungler to visualize all important data:
    
