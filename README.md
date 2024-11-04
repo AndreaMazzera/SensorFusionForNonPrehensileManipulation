@@ -1,6 +1,7 @@
 # Sensor Fusion For Object Pose Estimation in Non-Prehensile Tray-Based Transportation
 This repository provides the entire development environment for a non-prehensile manipulation application consisting of a manipulator with a tray carrying an object. The Extended Kalman Filter performs the sensor fusion of sensory data to estimated object pose (x,y,yaw) on the tray.
-![simulation setup](images/simulation_setup.png)
+
+<div align="center"> <img src="images/simulation_setup.png" alt="simulation setup"> </div> 
 
 ## :package: Package Overview
 - [`apriltag`](./apriltag): is a ROS2 wrapper of the AprilTag visual fiducial detector. 
@@ -68,7 +69,7 @@ To test the project open four terminal and launch respectively:
   ```
   This console displays some useful information (updated every 3 seconds) such as whether the object has fallen or not and what sensors data are available.
   
-<div align="center"> <img src="images/ekf_state.png" alt="user menu"> </div> 
+<div align="center"> <img src="images/ekf_state.png" alt="ekf_state.png"> </div> 
 
 
 4. Launcher for plotjungler to visualize all important data:
